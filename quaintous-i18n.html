@@ -1,0 +1,56 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+<script>
+  I18N = {
+    __: function(key) {
+      if(window.__i18n__ !== undefined) {
+        return key.split('.').reduce(function(prev, cur) {
+          return prev[cur];
+        }, window.__i18n__);
+      } else {
+        return key;
+      }
+    }
+  }
+</script>
+
+<dom-module id="quaintous-i18n">
+  <template>
+    <iron-ajax
+      auto
+      url=[[localesPath]]
+      handle-as="json"
+      loading="{{loading}}"
+      on-response="_handleResponse"></iron-ajax>
+  </template>
+  <script>
+    Polymer({
+      is: 'quaintous-i18n',
+
+      hostAttributes: {
+        hidden: true
+      },
+
+      properties: {
+        /**
+         * URL to translations JSON file
+         */
+        localesPath: String,
+
+        /**
+         * Denotes if an AJAX call is on the fly
+         */
+        loading: {
+          type: Boolean,
+          notify: true,
+          reflectToAttribute: true
+        }
+      },
+
+      _handleResponse: function(request) {
+        window.__i18n__ = request.detail.response;
+      }
+    });
+  </script>
+</dom-module>

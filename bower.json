@@ -1,0 +1,28 @@
+{
+  "name": "quaintous-i18n",
+  "version": "0.1.0",
+  "authors": [
+    "Yan Foto <yan.foto@quaintous.com>"
+  ],
+  "description": "A Polymer 1.0 element for internationalization",
+  "main": "quaintous-i18n.html",
+  "moduleType": [],
+  "keywords": [
+    "polymer",
+    "internationalization",
+    "web-components"
+  ],
+  "license": "BSD",
+  "homepage": "https://gitlab.com/quaintous-polymer/quaintous-i18n",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iron-ajax": "PolymerElements/iron-ajax#^1.2.0",
+    "polymer": "Polymer/polymer#^1.3.1"
+  }
+}
